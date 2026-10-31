@@ -15,6 +15,21 @@ import {colors} from '../theme/tokens';
 const FPS=30;
 const exterior='https://upload.wikimedia.org/wikipedia/commons/5/57/Costco_Exterior.jpg';
 
+const captionCues = [
+  [0, 120, 'You already paid at Costco.'],
+  [120, 240, 'The cashier scanned everything. Your card went through.'],
+  [240, 360, 'So why are you stopped again at the door?'],
+  [360, 480, 'Most people assume theft.'],
+  [480, 660, "Costco's own explanation is different."],
+  [660, 900, 'The receipt check verifies processing, inventory, and your bill.'],
+  [900, 1080, 'Missed item: your bill is low, but inventory is wrong.'],
+  [1080, 1260, 'Double scan: inventory may be fine, but you overpaid.'],
+  [1260, 1440, 'That tiny checkpoint catches mismatches before both sides leave.'],
+  [1440, 1620, "At Costco's scale, accuracy matters."],
+  [1620, 1740, 'A tiny control point inside a massive inventory and membership machine.'],
+  [1740, 1800, "That's Behind the Price."],
+] as const;
+
 const EASE={extrapolateLeft:'clamp' as const,extrapolateRight:'clamp' as const};
 
 const Grid: React.FC=()=>(
@@ -25,6 +40,39 @@ const Grid: React.FC=()=>(
     backgroundSize:'72px 72px',
   }}/>
 );
+
+const CaptionTrack:React.FC=()=>{
+  const f=useCurrentFrame();
+  const cue=captionCues.find(([start,end])=>f>=start&&f<end);
+  if(!cue) return null;
+  return <div style={{
+    position:'absolute',left:34,right:34,bottom:72,zIndex:20,
+    display:'flex',justifyContent:'center',pointerEvents:'none'
+  }}>
+    <div style={{
+      maxWidth:930,padding:'14px 20px',borderRadius:16,
+      background:'rgba(9,12,11,.72)',backdropFilter:'blur(10px)',
+      border:'1px solid rgba(244,245,240,.10)',
+      fontFamily:fonts.sans,fontSize:32,lineHeight:1.18,fontWeight:700,
+      color:colors.paper,textAlign:'center',textShadow:'0 2px 12px rgba(0,0,0,.35)'
+    }}>{cue[2]}</div>
+  </div>;
+};
+
+const TransitionSweep:React.FC<{frameAt:number}>=({frameAt})=>{
+  const f=useCurrentFrame();
+  const local=f-frameAt;
+  if(local<-10||local>16) return null;
+  const x=interpolate(local,[-10,4,16],[-120,0,120],EASE);
+  return <AbsoluteFill style={{zIndex:30,pointerEvents:'none',overflow:'hidden'}}>
+    <div style={{
+      position:'absolute',top:0,bottom:0,left:`${x}%`,width:'38%',
+      background:'linear-gradient(90deg,transparent 0%,rgba(22,242,139,.16) 40%,rgba(22,242,139,.72) 50%,rgba(244,245,240,.12) 57%,transparent 100%)',
+      transform:'skewX(-12deg)',
+      filter:'blur(2px)'
+    }}/>
+  </AbsoluteFill>;
+};
 
 const Flash: React.FC<{frameAt:number}>=({frameAt})=>{
   const f=useCurrentFrame();
@@ -222,6 +270,8 @@ export const CostcoShort:React.FC=()=>{
         <Audio src={staticFile('generated/costco-short/click.wav')} volume={0.32}/>
       </Sequence>
     ))}
+    <CaptionTrack/>
+    {[210,420,780,1170,1560].map((at)=><TransitionSweep key={at} frameAt={at}/>)}
     <Flash frameAt={210}/><Flash frameAt={420}/><Flash frameAt={780}/><Flash frameAt={1170}/>
   </AbsoluteFill>;
 };
