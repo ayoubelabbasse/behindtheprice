@@ -3,16 +3,23 @@ export const YOUTUBE_HEIGHT = 1080;
 export const DEFAULT_FPS = 30;
 
 export const colors = {
-  ink: '#0B0E12',
-  inkLift: '#151A22',
-  paper: '#F3EBE0',
-  paperMuted: '#C9BFB1',
-  gold: '#E8B931',
-  goldSoft: '#F3D27A',
-  crimson: '#D6453D',
-  sage: '#7F9B7A',
-  line: 'rgba(243, 235, 224, 0.14)',
-  dim: 'rgba(11, 14, 18, 0.58)',
+  ink: '#090C0B',
+  inkLift: '#111714',
+  paper: '#F4F5F0',
+  paperMuted: '#B7BDB7',
+
+  // Brand accent. Existing components use the legacy "gold" key;
+  // keep the key stable while aligning the visual system with the
+  // Behind the Price black / off-white / electric-green identity.
+  gold: '#16F28B',
+  goldSoft: '#8BFFC0',
+
+  // Semantic emphasis / warning colors.
+  crimson: '#FF5E63',
+  sage: '#77B98B',
+
+  line: 'rgba(244, 245, 240, 0.14)',
+  dim: 'rgba(9, 12, 11, 0.60)',
 } as const;
 
 export const spacing = {
