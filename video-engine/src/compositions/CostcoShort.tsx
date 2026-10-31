@@ -12,7 +12,6 @@ import {
 import {fonts} from '../theme/fonts';
 import {colors} from '../theme/tokens';
 
-const FPS=30;
 const exterior=staticFile('generated/costco-short/costco-exterior.jpg');
 
 const captionCues = [
