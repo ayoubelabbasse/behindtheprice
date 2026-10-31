@@ -1,7 +1,7 @@
 {
   "episode": {
     "id": "001-costco-receipt",
-    "title": "",
+    "title": "Why Costco Checks Your Receipt Before You Leave",
     "slug": "001-costco-receipt",
     "fps": 30,
     "width": 1920,
@@ -13,6 +13,165 @@
       "sfx": []
     },
     "captions": [],
-    "scenes": []
+    "scenes": [
+      {
+        "id": "s01-hook",
+        "kind": "headline",
+        "startFrame": 0,
+        "durationInFrames": 720,
+        "eyebrow": "EP001",
+        "title": "You already paid. So why does Costco stop you again?",
+        "subtitle": "The receipt check looks redundant — until you look at the business system behind it."
+      },
+      {
+        "id": "s02-receipt-ritual",
+        "kind": "receipt",
+        "startFrame": 720,
+        "durationInFrames": 840,
+        "merchant": "MEMBER WAREHOUSE",
+        "date": "EXIT CHECK",
+        "items": [
+          {
+            "label": "Groceries",
+            "price": 74.42
+          },
+          {
+            "label": "Household",
+            "price": 31.99
+          },
+          {
+            "label": "Case of drinks",
+            "price": 19.49,
+            "emphasize": true
+          }
+        ],
+        "total": 125.9,
+        "currency": "USD"
+      },
+      {
+        "id": "s03-official-reason",
+        "kind": "source-card",
+        "startFrame": 1560,
+        "durationInFrames": 960,
+        "source": "Costco Customer Service",
+        "year": "2023",
+        "detail": "Costco says the exit check is used to verify cashier processing, maintain inventory accuracy, and make sure members were charged correctly.",
+        "url": "customerservice.costco.com"
+      },
+      {
+        "id": "s04-two-errors",
+        "kind": "headline",
+        "startFrame": 2520,
+        "durationInFrames": 900,
+        "eyebrow": "ONE CHECKOUT ERROR · TWO DIFFERENT PROBLEMS",
+        "title": "Missed item: inventory is wrong. Double scan: the member is overcharged.",
+        "subtitle": "The exit creates a second control point before both sides leave the building."
+      },
+      {
+        "id": "s05-membership-policy",
+        "kind": "source-card",
+        "startFrame": 3420,
+        "durationInFrames": 1020,
+        "source": "Costco Member Privileges and Conditions",
+        "year": "Updated 2026",
+        "detail": "Costco's membership terms say receipts and merchandise are inspected at exit to ensure members are correctly charged.",
+        "url": "costco.com"
+      },
+      {
+        "id": "s06-theft-distinction",
+        "kind": "headline",
+        "startFrame": 4440,
+        "durationInFrames": 900,
+        "eyebrow": "SECURITY STILL MATTERS",
+        "title": "But Costco describes loss prevention separately.",
+        "subtitle": "Dedicated loss-prevention roles explicitly focus on theft, shrink, investigations, and protecting company assets."
+      },
+      {
+        "id": "s07-scale",
+        "kind": "animated-number",
+        "startFrame": 5340,
+        "durationInFrames": 1200,
+        "value": 297.247,
+        "prefix": "$",
+        "suffix": "B",
+        "label": "FY2026 Costco net sales",
+        "decimals": 3
+      },
+      {
+        "id": "s08-merchandise-economics",
+        "kind": "chart",
+        "startFrame": 6540,
+        "durationInFrames": 1200,
+        "chartType": "bar",
+        "title": "FY2026 merchandise economics",
+        "unit": "USD billions",
+        "series": [
+          {
+            "label": "Net sales",
+            "value": 297.247,
+            "color": "#16F28B"
+          },
+          {
+            "label": "Merch. cost",
+            "value": 264.279,
+            "color": "#B7BDB7"
+          },
+          {
+            "label": "Gross margin",
+            "value": 32.968,
+            "color": "#F4F5F0"
+          }
+        ]
+      },
+      {
+        "id": "s09-margin",
+        "kind": "animated-number",
+        "startFrame": 7740,
+        "durationInFrames": 900,
+        "value": 11.1,
+        "suffix": "%",
+        "label": "Approx. merchandise gross margin as a share of net sales",
+        "decimals": 1
+      },
+      {
+        "id": "s10-membership-fees",
+        "kind": "animated-number",
+        "startFrame": 8640,
+        "durationInFrames": 900,
+        "value": 5.907,
+        "prefix": "$",
+        "suffix": "B",
+        "label": "FY2026 membership-fee revenue",
+        "decimals": 3
+      },
+      {
+        "id": "s11-members",
+        "kind": "animated-number",
+        "startFrame": 9540,
+        "durationInFrames": 900,
+        "value": 84.1,
+        "suffix": "M",
+        "label": "Paid Costco members at FY2026 year-end",
+        "decimals": 1
+      },
+      {
+        "id": "s12-renewal",
+        "kind": "animated-number",
+        "startFrame": 10440,
+        "durationInFrames": 900,
+        "value": 92.3,
+        "suffix": "%",
+        "label": "U.S. / Canada membership renewal rate",
+        "decimals": 1
+      },
+      {
+        "id": "s13-payoff",
+        "kind": "slate",
+        "startFrame": 11340,
+        "durationInFrames": 1560,
+        "title": "The transaction. The inventory. Your bill.",
+        "subtitle": "That five-second door check is a small control point inside Costco's much bigger operating system."
+      }
+    ]
   }
 }
