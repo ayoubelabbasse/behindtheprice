@@ -13,7 +13,7 @@ import {fonts} from '../theme/fonts';
 import {colors} from '../theme/tokens';
 
 const FPS=30;
-const exterior='https://upload.wikimedia.org/wikipedia/commons/5/57/Costco_Exterior.jpg';
+const exterior=staticFile('generated/costco-short/costco-exterior.jpg');
 
 const captionCues = [
   [0, 120, 'You already paid at Costco.'],
