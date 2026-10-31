@@ -136,6 +136,52 @@ export const slateSceneSchema = z.object({
   subtitle: z.string().optional(),
 });
 
+export const photoStorySceneSchema = z.object({
+  ...sceneBase,
+  kind: z.literal('photo-story'),
+  src: z.string(),
+  kicker: z.string().optional(),
+  headline: z.string().optional(),
+  caption: z.string().optional(),
+  attribution: z.string().optional(),
+  position: z.string().optional(),
+});
+
+export const processFlowSceneSchema = z.object({
+  ...sceneBase,
+  kind: z.literal('process-flow'),
+  title: z.string().optional(),
+  nodes: z.array(z.object({
+    label: z.string(),
+    detail: z.string().optional(),
+  })).min(2),
+});
+
+const errorSideSchema = z.object({
+  title: z.string(),
+  body: z.string(),
+  result: z.string(),
+});
+
+export const errorCompareSceneSchema = z.object({
+  ...sceneBase,
+  kind: z.literal('error-compare'),
+  title: z.string().optional(),
+  left: errorSideSchema,
+  right: errorSideSchema,
+});
+
+export const metricGridSceneSchema = z.object({
+  ...sceneBase,
+  kind: z.literal('metric-grid'),
+  title: z.string().optional(),
+  metrics: z.array(z.object({
+    value: z.string(),
+    label: z.string(),
+    detail: z.string().optional(),
+  })).min(1).max(6),
+});
+
 export const sceneSchema = z.discriminatedUnion('kind', [
   headlineSceneSchema,
   receiptSceneSchema,
@@ -147,6 +193,10 @@ export const sceneSchema = z.discriminatedUnion('kind', [
   sourceCardSceneSchema,
   bRollSceneSchema,
   slateSceneSchema,
+  photoStorySceneSchema,
+  processFlowSceneSchema,
+  errorCompareSceneSchema,
+  metricGridSceneSchema,
 ]);
 
 export const episodeAudioSchema = z.object({
