@@ -4,9 +4,13 @@ import {
   BackgroundFootage,
   Chart,
   Comparison,
+  ErrorCompare,
   Headline,
+  MetricGrid,
   NarrationTrack,
+  PhotoStory,
   PriceTag,
+  ProcessFlow,
   Receipt,
   SourceCard,
   Subtitles,
@@ -87,6 +91,23 @@ const SceneBody: React.FC<{scene: Scene}> = ({scene}) => {
           <Headline title={scene.title} subtitle={scene.subtitle} />
         </div>
       );
+    case 'photo-story':
+      return (
+        <PhotoStory
+          src={scene.src}
+          kicker={scene.kicker}
+          headline={scene.headline}
+          caption={scene.caption}
+          attribution={scene.attribution}
+          position={scene.position}
+        />
+      );
+    case 'process-flow':
+      return <ProcessFlow title={scene.title} nodes={scene.nodes} />;
+    case 'error-compare':
+      return <ErrorCompare title={scene.title} left={scene.left} right={scene.right} />;
+    case 'metric-grid':
+      return <MetricGrid title={scene.title} metrics={scene.metrics} />;
     default: {
       const _exhaustive: never = scene;
       return _exhaustive;
@@ -100,14 +121,16 @@ export const SceneRenderer: React.FC<{scene: Scene}> = ({scene}) => {
   return (
     <Sequence from={scene.startFrame} durationInFrames={scene.durationInFrames} name={scene.id}>
       <AbsoluteFill>
-        <BackgroundFootage
-          src={backgroundSrc}
-          dim={scene.background?.dim}
-          kenBurns={scene.background?.kenBurns}
-        />
+        {scene.kind !== 'photo-story' ? (
+          <BackgroundFootage
+            src={backgroundSrc}
+            dim={scene.background?.dim}
+            kenBurns={scene.background?.kenBurns}
+          />
+        ) : null}
         <AbsoluteFill
           style={{
-            padding: spacing.frame,
+            padding: scene.kind === 'photo-story' ? 0 : spacing.frame,
             justifyContent: 'center',
           }}
         >

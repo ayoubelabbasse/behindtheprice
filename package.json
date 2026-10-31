@@ -9,7 +9,10 @@
     "render:test": "remotion render TestComposition output/test.mp4",
     "still:test": "remotion still TestComposition output/test-frame.png --frame=45",
     "typecheck": "tsc",
-    "upgrade": "remotion upgrade"
+    "upgrade": "remotion upgrade",
+    "render:costco-proof": "remotion render Episode output/costco-proof.mp4 --props=./episodes/001-costco-receipt/proof.json",
+    "assets:costco-short": "node scripts/generate-costco-short-assets.mjs",
+    "render:costco-short": "npm run typecheck && npm run assets:costco-short && remotion render CostcoShort output/costco-short.mp4"
   },
   "dependencies": {
     "@remotion/captions": "4.0.539",
