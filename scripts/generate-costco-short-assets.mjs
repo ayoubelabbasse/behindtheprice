@@ -1,5 +1,5 @@
 import {execFileSync} from 'node:child_process';
-import {mkdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {mkdirSync, rmSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
 const root=process.cwd();
@@ -7,6 +7,12 @@ const out=resolve(root,'public/generated/costco-short');
 mkdirSync(out,{recursive:true});
 
 const narrationPath=resolve(root,'episodes/001-costco-receipt/short-narration.txt');
+
+const exteriorPath=resolve(out,'costco-exterior.jpg');
+const exteriorUrl='https://upload.wikimedia.org/wikipedia/commons/5/57/Costco_Exterior.jpg';
+const imageResponse=await fetch(exteriorUrl);
+if(!imageResponse.ok) throw new Error(`Failed to download Costco exterior: ${imageResponse.status}`);
+writeFileSync(exteriorPath,Buffer.from(await imageResponse.arrayBuffer()));
 const aiff=resolve(out,'narration.aiff');
 const m4a=resolve(out,'narration.m4a');
 
@@ -67,4 +73,4 @@ makeFx(.16,(t)=>{
   return Math.sin(2*Math.PI*1100*t)*0.15*e + Math.sin(2*Math.PI*180*t)*0.11*e;
 },'click.wav');
 
-console.log('Generated: narration.m4a, bed.wav, impact.wav, whoosh.wav, click.wav');
+console.log('Generated: costco-exterior.jpg, narration.m4a, bed.wav, impact.wav, whoosh.wav, click.wav');
