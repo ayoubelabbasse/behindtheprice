@@ -1,0 +1,18 @@
+{
+  "episode": {
+    "id": "001-costco-receipt",
+    "title": "",
+    "slug": "001-costco-receipt",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "audio": {
+      "narrationSrc": null,
+      "musicSrc": null,
+      "musicVolume": 0.12,
+      "sfx": []
+    },
+    "captions": [],
+    "scenes": []
+  }
+}
