@@ -1,0 +1,109 @@
+{
+  "episode": {
+    "id": "001-costco-proof",
+    "title": "Why Costco Checks Your Receipt — Quality Proof",
+    "slug": "001-costco-proof",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "audio": {
+      "narrationSrc": null,
+      "musicSrc": null,
+      "musicVolume": 0.12,
+      "sfx": []
+    },
+    "captions": [],
+    "scenes": [
+      {
+        "id": "p01",
+        "kind": "headline",
+        "startFrame": 0,
+        "durationInFrames": 300,
+        "eyebrow": "BEHIND THE PRICE",
+        "title": "You already paid. So why does Costco stop you again?",
+        "subtitle": "The obvious answer is theft. Costco's own explanation is more interesting."
+      },
+      {
+        "id": "p02",
+        "kind": "process-flow",
+        "startFrame": 300,
+        "durationInFrames": 360,
+        "title": "One purchase passes through four control points",
+        "nodes": [
+          {
+            "label": "Cart",
+            "detail": "Physical merchandise"
+          },
+          {
+            "label": "Checkout",
+            "detail": "Items become transaction data"
+          },
+          {
+            "label": "Receipt",
+            "detail": "What the system says happened"
+          },
+          {
+            "label": "Exit",
+            "detail": "Second verification point"
+          }
+        ]
+      },
+      {
+        "id": "p03",
+        "kind": "error-compare",
+        "startFrame": 660,
+        "durationInFrames": 420,
+        "title": "A tiny checkout error creates two very different problems",
+        "left": {
+          "title": "MISSED ITEM",
+          "body": "A case under the cart leaves without being scanned.",
+          "result": "The member's bill is low — but the inventory system still thinks the item is inside."
+        },
+        "right": {
+          "title": "DOUBLE SCAN",
+          "body": "The same product is scanned twice.",
+          "result": "Inventory may be fine — but the member paid too much."
+        }
+      },
+      {
+        "id": "p04",
+        "kind": "source-card",
+        "startFrame": 1080,
+        "durationInFrames": 330,
+        "source": "Costco Customer Service",
+        "year": "2023",
+        "detail": "Costco says receipt verification checks cashier processing, maintains inventory-control accuracy, and helps ensure members were charged properly.",
+        "url": "customerservice.costco.com"
+      },
+      {
+        "id": "p05",
+        "kind": "metric-grid",
+        "startFrame": 1410,
+        "durationInFrames": 390,
+        "title": "Now zoom out to Costco's scale",
+        "metrics": [
+          {
+            "value": "$297.2B",
+            "label": "FY2026 net sales",
+            "detail": "Huge volume makes small operational errors matter."
+          },
+          {
+            "value": "84.1M",
+            "label": "Paid members",
+            "detail": "A paid relationship, not a normal walk-in store."
+          },
+          {
+            "value": "92.3%",
+            "label": "U.S./Canada renewal",
+            "detail": "Keeping members satisfied matters year after year."
+          },
+          {
+            "value": "$5.9B",
+            "label": "Membership-fee revenue",
+            "detail": "FY2026 reported membership-fee revenue."
+          }
+        ]
+      }
+    ]
+  }
+}
